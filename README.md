@@ -13,29 +13,29 @@ Hamsa
 1. Mohd Faiz Hafizuddin bin Ahmad Yazi (2011837)
     - Identify, evaluate and prevent of:
       - Secured Cookies
-      - CSP
-      - JS Library.
+      - JS Library
+      - Cookie Poisoning
 
 2. Muhammad Zaidi bin Abdul Razak (1820833)
     - Identify, evaluate and prevent of:
-      - Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.
-      - Hash Disclosure.
-      - CSRF.
+      - Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc)
+      - Hash Disclosure
+      - CSRF
 
 3. Hani Arinah binti Hairul Azam (2019774)
     - Identify, evaluate and prevent of:
-      - Cookie Poisoning.
-      - Information Disclosure.
+      - CSP
+      - Information Disclosure
 
 4. Hani Nursyamira binti Muhamat Halis (2016478)
     - Identify, evaluate and prevent of:
-      - HTTPS implementation (TLS/SSL).
-      - Potential XSS.
+      - HTTPS implementation (TLS/SSL)
+      - Potential XSS
 
 ## Table of Contents
 1. [Description](#desc)
 2. [Observation Results](#obsv)
-    1. [Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.)](#serv)
+    1. [Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc)](#serv)
     2. [Hash Disclosure](#hash)
     3. [CSRF](#csrf)
     4. [Secured Cookies](#sec)
@@ -48,7 +48,7 @@ Hamsa
 
 ## <a name="desc"/> Description
 ## <a name="obsv"/>Observation Results
-### <a name="serv"/>a. Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.)
+### <a name="serv"/>a. Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc)
 #### Identify:
 - Server Leaks Version Information via "Server" HTTP Response Header Field <br>
 ![image](https://user-images.githubusercontent.com/84786688/236850642-bd12f601-aa98-4056-b126-2c8a226764f0.png)
