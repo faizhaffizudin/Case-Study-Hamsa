@@ -55,13 +55,15 @@ Hamsa
     - Server used is Apache v2.4.41 as shown by the response: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236831136-61c029f5-ef54-4b0b-a19c-81a8f527637e.png)
     - CWE ID: 200 - Exposure of Sensitive Information to an Unauthorized Actor
-    - Low risk
+    - Risk level: Low
+    - Confidence level: High
 - Cross-Domain JavaScript Source File Inclusion <br>
     ![image](https://user-images.githubusercontent.com/84786688/236828248-fc2dcc10-2063-4118-950c-38ec486b740b.png)
     - Server-Side Scripting used is JavaScript as shown by the script source .js extension: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236831810-e31b36c3-2f4e-42d3-9a9b-4453867709e1.png)
     - CWE ID: 829 - Inclusion of Functionality from Untrusted Control Sphere
-    - Low risk
+    - Risk level: Low
+    - Confidence level: Medium
 #### Evaluate:
 - Server Leak: 
     - The web/application server is leaking version information via the "Server" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.
@@ -99,7 +101,8 @@ https://cwe.mitre.org/data/definitions/829.html
     - Eg. of absence: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236835087-a25e23bf-86cd-4821-afb4-c0a5146725b0.png)
     - CWE ID: 352 - Cross-Site Request Forgery (CSRF)
-    - Medium level risk
+    - Risk level: Medium
+    - Confidence level: Low
 #### Evaluate:
 Upon examination of HTML submission forms present on the website, it was discovered that no Anti-CSRF tokens were present. 
 
