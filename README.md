@@ -141,8 +141,21 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 
 ### <a name="sec"/> d. Secured Cookies
 #### Identify:
+- Identified as Cookie Without Secure Flag
+- The risk is low
+- CWE ID 614 (Sensitive Cookie in HTTPS Session Without 'Secure' Attribute)
+- WASC ID 13
+- A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections through Set-Cookie: cead32cbdaf3cab9ed422ebced5449f0
 #### Evaluate:
+- CVE-2004-0462: A product does not set the Secure attribute for sensitive cookies in HTTPS sessions, which could cause the user agent to send those cookies in plaintext over an HTTP session with the product. CVSS Score is 2.1
+- CVE-2008-3663: A product does not set the secure flag for the session cookie in an https session, which can cause the cookie to be sent in http requests and make it easier for remote attackers to capture this cookie. CVSS Score is 5.0
+- CVE-2008-3662: A product does not set the secure flag for the session cookie in an https session, which can cause the cookie to be sent in http requests and make it easier for remote attackers to capture this cookie. CVSS Score is 5.0
+- CVE-2008-0128: A product does not set the secure flag for a cookie in an https session, which can cause the cookie to be sent in http requests and make it easier for remote attackers to capture this cookie. CVSS Score is 5.0
+- Related with CAPEC-102 (Session Sidejacking) which takes advantage of an unencrypted communication channel between a victim and target system. The attacker sniffs traffic on a network looking for session tokens in unencrypted traffic. Once a session token is captured, the attacker performs malicious actions by using the stolen token with the targeted application to impersonate the victim. This attack is a specific method of session hijacking, which is exploiting a valid session token to gain unauthorized access to a target system or information. Other methods to perform a session hijacking are session fixation, cross-site scripting, or compromising a user or server machine and stealing the session token.
 #### Prevent:
+- Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.
+- Always set the secure attribute when the cookie should sent via HTTPS only.
+
 ### <a name="csp"/>e. CSP
 #### Identify:
 - Risk level: medium
