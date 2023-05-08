@@ -60,15 +60,13 @@ The alerts observed are listed on the table of contents and we will also identif
     - Server used is Apache v2.4.41 as shown by the response: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236831136-61c029f5-ef54-4b0b-a19c-81a8f527637e.png)
     - CWE ID: 200 - Exposure of Sensitive Information to an Unauthorized Actor
-    - Risk level: Low
-    - Confidence level: High
+    - Low risk
 - Cross-Domain JavaScript Source File Inclusion <br>
     ![image](https://user-images.githubusercontent.com/84786688/236828248-fc2dcc10-2063-4118-950c-38ec486b740b.png)
     - Server-Side Scripting used is JavaScript as shown by the script source .js extension: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236831810-e31b36c3-2f4e-42d3-9a9b-4453867709e1.png)
     - CWE ID: 829 - Inclusion of Functionality from Untrusted Control Sphere
-    - Risk level: Low
-    - Confidence level: Medium
+    - Low risk
 #### Evaluate:
 - Server Leak: 
     - The web/application server is leaking version information via the "Server" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.
@@ -89,7 +87,7 @@ The alerts observed are listed on the table of contents and we will also identif
     - Environment hardening (run your code using the lowest privileges that are required to accomplish the necessary tasks), surface reduction, input validation and enforcment by conversion can also be used.
     - Application firewall can also be used, that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.
 
-Observed examples of these exploited can be seen on their cwe mitre webpage accordingly.<br>
+Observed examples can be seen on cwe links in the references below. <br>
 Reference: https://cwe.mitre.org/data/definitions/200.html <br>
 https://cwe.mitre.org/data/definitions/829.html
 ### <a name="hash"/> b. Hash Disclosure
@@ -106,8 +104,7 @@ https://cwe.mitre.org/data/definitions/829.html
     - Eg. of absence: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236835087-a25e23bf-86cd-4821-afb4-c0a5146725b0.png)
     - CWE ID: 352 - Cross-Site Request Forgery (CSRF)
-    - Risk level: Medium
-    - Confidence level: Low
+    - Medium level risk
 #### Evaluate:
 Upon examination of HTML submission forms present on the website, it was discovered that no Anti-CSRF tokens were present. 
 
@@ -116,9 +113,19 @@ However they also make a penetration testers job harder, especially if the token
 
 Cross-site request forgery (CSRF) is an attack in which a victim unknowingly sends an HTTP request to a target destination to perform an action as the victim. The cause of this attack lies in application functionality using predictable URL/form actions in a repeatable manner. The trust that a website has for a user is exploited in CSRF attacks. While similar to cross-site scripting (XSS), which exploits the trust that a user has for a website, CSRF attacks are not necessarily cross-site but can be. Other names for CSRF attacks include XSRF, one-click attack, session riding, confused deputy, and sea surf.
 
-CSRF attacks are effective in various situations, such as when the victim has an active session or is authenticated via HTTP auth on the target site. Additionally, CSRF can be used to disclose information by accessing the response, especially when the target site is vulnerable to XSS. This is because XSS can function as a platform for CSRF, enabling the attack to operate within the same-origin policy. <br>
+CSRF attacks are effective in various situations, such as when the victim has an active session or is authenticated via HTTP auth on the target site. Additionally, CSRF can be used to disclose information by accessing the response, especially when the target site is vulnerable to XSS. This is because XSS can function as a platform for CSRF, enabling the attack to operate within the same-origin policy.
 
-![image](https://user-images.githubusercontent.com/84786688/236856243-03a50bed-4caf-48f5-8ac6-ac784e0773df.png)<br>
+Observed examples:
+- CVE-2004-1703 Add user accounts via a URL in an img tag
+- CVE-2004-1995 Add user accounts via a URL in an img tag
+- CVE-2004-1967 Arbitrary code execution by specifying the code in a crafted img tag or URL
+- CVE-2004-1842 Gain administrative privileges via a URL in an img tag
+- CVE-2005-1947 Delete a victim's information via a URL or an img tag
+- CVE-2005-2059 Change another user's settings via a URL or an img tag
+- CVE-2005-1674 Perform actions as administrator via a URL or an img tag
+- CVE-2009-3520 modify password for the administrator
+- CVE-2009-3022 CMS allows modification of configuration via CSRF attack against the administrator
+- CVE-2009-3759 web interface allows password changes or stopping a virtual machine via CSRF
 
 Reference: http://cwe.mitre.org/data/definitions/352.html
 
@@ -131,7 +138,7 @@ Reference: http://cwe.mitre.org/data/definitions/352.html
 - ESAPI Session Management control can be utilized to prevent CSRF attacks as it includes a component specifically designed for this purpose.
 - It's crucial to avoid using the GET method for any request that may trigger a state change to minimize the chances of CSRF attacks.
 
-- Phase: Implementation
+- Implementation Phases:
     - When implementing the application, it's essential to ensure that it's free of cross-site scripting issues, as most CSRF defenses can be bypassed using attacker-controlled scripts.
     - Checking the HTTP Referer header can help to identify if the request came from an expected page. However, it's important to note that this method can break legitimate functionality as users or proxies may have disabled sending the Referer header for privacy reasons.
 
@@ -150,21 +157,42 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 Content Security Policy(CSP) offers a layer of security that aids in detecting and mitigating specific sorts of threats, such as Cross-Site Scripting (XSS) and data injection attacks. Hackers use XSS attacks to deceive trustworthy websites into sending harmful material. The browser runs all code from trustworthy origins and cannot distinguish between legitimate and malicious code. Thus any inserted code is also executed.
 
 CWE-693 denotes protection mechanism failure, which implies that this web application does not utilize or wrongly uses a protection mechanism that offers adequate defense against directed attacks. This weakness applies to three different circumstances. A "missing" protection mechanism happens when the application fails to declare any defense mechanism against a particular type of attack. An "insufficient" protection mechanism may provide certain defenses, such as against the most prevalent attacks, but it does not guard against all that is desired. Finally, an "ignored" mechanism happens when a mechanism is present and in active usage inside the product but has not been applied in some code path by the developer.
-
 #### Prevent:
+- Configure the webserver to return the Content-Security-Policy HTTP Header with values controlling which resources the browser can load for the page
+- Writing JavaScript and CSS with CSP in mind
+    - Because it constantly executes in the current context, inline code is a major injection vector that cannot be restricted. When CSP is enabled, it, by default, blocks all inline code. This implies no inline styles or scripts, including inline event handlers or javascript: URLs. Thus any new code should adhere to best practices and only utilize external script and style files.
+- Page-level CSP directives
+    - Use the sandbox directive to treat the page as if inside a sandboxed iframe. To increase security on older websites with many legacy HTTP pages, use the upgrade-unsafe-requests directive to rewrite insecure URLs. This directs user agents to transition HTTP to HTTPS in URL schemes and is useful when still having various HTTP URLs.
+
 ### <a name="jsl"/>f. JS Library
 #### Identify:
+- Identifies as Vulnerable JS Library
+- The risk is medium
+- CWE ID 829 (Inclusion of Functionality from Untrusted Control Sphere)
+- The identified library jquery, version 1.12.4-joomla is vulnerable.
 #### Evaluate:
+- CVE-2020-11023: In jQuery versions greater than or equal to 1.0.3 and before 3.5.0, passing HTML containing <option> elements from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code. This problem is patched in jQuery 3.5.0.
+- CVE-2020-11022: In jQuery versions greater than or equal to 1.2 and before 3.5.0, passing HTML from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code. This problem is patched in jQuery 3.5.0.
+- CVE-2015-9251: jQuery before 3.0.0 is vulnerable to Cross-site Scripting (XSS) attacks when a cross-domain Ajax request is performed without the dataType option, causing text/javascript responses to be executed.
+- CVSS Score 4.3
+- This vulnerability is related with cross site scripting.
 #### Prevent:
+- Upgrade to the latest version of jquery.
+- Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+- When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.
+- For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602 (Client-Side Enforcement of Server-Side Security). Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+
 ### <a name="https"/>g. HTTPS Implementation (TLS/SSL)
 #### Identify:
 #### Evaluate:
 #### Prevent:
+
 ### <a name="coo"/>h. Cookie Poisoning
 #### Identify:
 - No alert found
 #### Evaluate:
 #### Prevent:
+
 ### <a name="pot"/>i. Potential XSS
 #### Identify:
   - Identified as User Controllable HTML Element Attribute.
@@ -194,14 +222,14 @@ Information disclosure is a vulnerability that can jeopardize the security of se
 CWE-200, according to CWE by the Mitre Organisation, is one of the most significant downward movers in 2022, falling from #20 in 2021 to #33. The total number of National Vulnerability Database(NVD)s is 241, and the average CVSS score is 5.99. As a result, CWE-200 has a medium severity rating, indicating that the web application may be vulnerable to a possible attack.
 ![examples](https://user-images.githubusercontent.com/121481219/236845313-6e1f9831-4335-4d4f-bca8-e8314446b91c.jpg)
 #### Prevent:
-1. Identify the suspicious comments
+- Identify the suspicious comments
     -The first step in resolving this issue is to locate the suspicious code comments. These comments might contain sensitive information, debugging information, or        other facts that an attacker could use to uncover weaknesses in the web application.
 
-2. Remove the suspicious comments
+- Remove the suspicious comments
     -Once the suspicious comments are identified, the following step is to delete them from the source code. Sensitive information should never be kept in comments          since anybody with access to the source code may readily access it. Just make sure that any sensitive information is removed before committing the code.
 
-3. Implement proper authentication and authorization 
+- Implement proper authentication and authorization 
     -Proper authentication and authorization must be implemented to secure the web application. This will ensure that critical information and functionality are only        accessible to authorized individuals.
 
-4. Make use of HTTPS
+- Make use of HTTPS
     -HTTPS is required for secure communication between the client and the server since it encrypts all data transmitted between the client and the server. 
