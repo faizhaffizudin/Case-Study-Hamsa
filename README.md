@@ -150,6 +150,9 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 - CWE ID: 693
 #### Evaluate:
 Content Security Policy(CSP) offers a layer of security that aids in detecting and mitigating specific sorts of threats, such as Cross-Site Scripting (XSS) and data injection attacks. Hackers use XSS attacks to deceive trustworthy websites into sending harmful material. The browser runs all code from trustworthy origins and cannot distinguish between legitimate and malicious code. Thus any inserted code is also executed.
+
+CWE-693 denotes protection mechanism failure, which implies that this web application does not utilize or wrongly uses a protection mechanism that offers adequate defense against directed attacks. This weakness applies to three different circumstances. A "missing" protection mechanism happens when the application fails to declare any defense mechanism against a particular type of attack. An "insufficient" protection mechanism may provide certain defenses, such as against the most prevalent attacks, but it does not guard against all that is desired. Finally, an "ignored" mechanism happens when a mechanism is present and in active usage inside the product but has not been applied in some code path by the developer.
+
 #### Prevent:
 ### <a name="jsl"/>f. JS Library
 #### Identify:
