@@ -13,29 +13,29 @@ Hamsa
 1. Mohd Faiz Hafizuddin bin Ahmad Yazi (2011837)
     - Identify, evaluate and prevent of:
       - Secured Cookies
-      - CSP
-      - JS Library.
+      - JS Library
+      - Cookie Poisoning
 
 2. Muhammad Zaidi bin Abdul Razak (1820833)
     - Identify, evaluate and prevent of:
-      - Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.
-      - Hash Disclosure.
-      - CSRF.
+      - Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc)
+      - Hash Disclosure
+      - CSRF
 
 3. Hani Arinah binti Hairul Azam (2019774)
     - Identify, evaluate and prevent of:
-      - Cookie Poisoning.
-      - Information Disclosure.
+      - CSP
+      - Information Disclosure
 
 4. Hani Nursyamira binti Muhamat Halis (2016478)
     - Identify, evaluate and prevent of:
-      - HTTPS implementation (TLS/SSL).
-      - Potential XSS.
+      - HTTPS implementation (TLS/SSL)
+      - Potential XSS
 
 ## Table of Contents
 1. [Description](#desc)
 2. [Observation Results](#obsv)
-    1. [Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.)](#serv)
+    1. [Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc)](#serv)
     2. [Hash Disclosure](#hash)
     3. [CSRF](#csrf)
     4. [Secured Cookies](#sec)
@@ -52,20 +52,22 @@ We will mainly be focusing on automated scan due to the large amount of webpages
 
 The alerts observed are listed on the table of contents and we will also identify the level of risk for each alert and additional information on the classification of threats (CWE or CVE).
 ## <a name="obsv"/>Observation Results
-### <a name="serv"/>a. Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.)
+### <a name="serv"/>a. Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc)
 #### Identify:
 - Server Leaks Version Information via "Server" HTTP Response Header Field <br>
 ![image](https://user-images.githubusercontent.com/84786688/236850642-bd12f601-aa98-4056-b126-2c8a226764f0.png)
     - Server used is Apache v2.4.41 as shown by the response: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236831136-61c029f5-ef54-4b0b-a19c-81a8f527637e.png)
     - CWE ID: 200 - Exposure of Sensitive Information to an Unauthorized Actor
-    - Low risk
+    - Risk level: Low
+    - Confidence level: High
 - Cross-Domain JavaScript Source File Inclusion <br>
     ![image](https://user-images.githubusercontent.com/84786688/236828248-fc2dcc10-2063-4118-950c-38ec486b740b.png)
     - Server-Side Scripting used is JavaScript as shown by the script source .js extension: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236831810-e31b36c3-2f4e-42d3-9a9b-4453867709e1.png)
     - CWE ID: 829 - Inclusion of Functionality from Untrusted Control Sphere
-    - Low risk
+    - Risk level: Low
+    - Confidence level: Medium
 #### Evaluate:
 - Server Leak: 
     - The web/application server is leaking version information via the "Server" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.
@@ -86,7 +88,7 @@ The alerts observed are listed on the table of contents and we will also identif
     - Environment hardening (run your code using the lowest privileges that are required to accomplish the necessary tasks), surface reduction, input validation and enforcment by conversion can also be used.
     - Application firewall can also be used, that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.
 
-Observed examples can be seen on cwe links in the references below. <br>
+Observed examples of these exploited can be seen on their cwe mitre webpage accordingly.<br>
 Reference: https://cwe.mitre.org/data/definitions/200.html <br>
 https://cwe.mitre.org/data/definitions/829.html
 ### <a name="hash"/> b. Hash Disclosure
@@ -103,7 +105,8 @@ https://cwe.mitre.org/data/definitions/829.html
     - Eg. of absence: <br>
     ![image](https://user-images.githubusercontent.com/84786688/236835087-a25e23bf-86cd-4821-afb4-c0a5146725b0.png)
     - CWE ID: 352 - Cross-Site Request Forgery (CSRF)
-    - Medium level risk
+    - Risk level: Medium
+    - Confidence level: Low
 #### Evaluate:
 Upon examination of HTML submission forms present on the website, it was discovered that no Anti-CSRF tokens were present. 
 
@@ -112,19 +115,9 @@ However they also make a penetration testers job harder, especially if the token
 
 Cross-site request forgery (CSRF) is an attack in which a victim unknowingly sends an HTTP request to a target destination to perform an action as the victim. The cause of this attack lies in application functionality using predictable URL/form actions in a repeatable manner. The trust that a website has for a user is exploited in CSRF attacks. While similar to cross-site scripting (XSS), which exploits the trust that a user has for a website, CSRF attacks are not necessarily cross-site but can be. Other names for CSRF attacks include XSRF, one-click attack, session riding, confused deputy, and sea surf.
 
-CSRF attacks are effective in various situations, such as when the victim has an active session or is authenticated via HTTP auth on the target site. Additionally, CSRF can be used to disclose information by accessing the response, especially when the target site is vulnerable to XSS. This is because XSS can function as a platform for CSRF, enabling the attack to operate within the same-origin policy.
+CSRF attacks are effective in various situations, such as when the victim has an active session or is authenticated via HTTP auth on the target site. Additionally, CSRF can be used to disclose information by accessing the response, especially when the target site is vulnerable to XSS. This is because XSS can function as a platform for CSRF, enabling the attack to operate within the same-origin policy. <br>
 
-Observed examples:
-- CVE-2004-1703 Add user accounts via a URL in an img tag
-- CVE-2004-1995 Add user accounts via a URL in an img tag
-- CVE-2004-1967 Arbitrary code execution by specifying the code in a crafted img tag or URL
-- CVE-2004-1842 Gain administrative privileges via a URL in an img tag
-- CVE-2005-1947 Delete a victim's information via a URL or an img tag
-- CVE-2005-2059 Change another user's settings via a URL or an img tag
-- CVE-2005-1674 Perform actions as administrator via a URL or an img tag
-- CVE-2009-3520 modify password for the administrator
-- CVE-2009-3022 CMS allows modification of configuration via CSRF attack against the administrator
-- CVE-2009-3759 web interface allows password changes or stopping a virtual machine via CSRF
+![image](https://user-images.githubusercontent.com/84786688/236856243-03a50bed-4caf-48f5-8ac6-ac784e0773df.png)<br>
 
 Reference: http://cwe.mitre.org/data/definitions/352.html
 
@@ -137,7 +130,7 @@ Reference: http://cwe.mitre.org/data/definitions/352.html
 - ESAPI Session Management control can be utilized to prevent CSRF attacks as it includes a component specifically designed for this purpose.
 - It's crucial to avoid using the GET method for any request that may trigger a state change to minimize the chances of CSRF attacks.
 
-- Implementation Phases:
+- Phase: Implementation
     - When implementing the application, it's essential to ensure that it's free of cross-site scripting issues, as most CSRF defenses can be bypassed using attacker-controlled scripts.
     - Checking the HTTP Referer header can help to identify if the request came from an expected page. However, it's important to note that this method can break legitimate functionality as users or proxies may have disabled sending the Referer header for privacy reasons.
 
