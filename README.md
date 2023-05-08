@@ -9,7 +9,7 @@ Group Member:
 3. Hani Arinah binti Hairul Azam (2019774)
 4. Hani Nursyamira binti Muhamat Halis (2016478)
 
-##Assigned Tasks:
+## Assigned Tasks:
 1. Mohd Faiz Hafizuddin bin Ahmad Yazi (2011837)
 - Identify, evaluate and prevent of:
   - Secured Cookies
@@ -32,12 +32,14 @@ Group Member:
   - HTTPS implementation (TLS/SSL).
   - Potential XSS.
 
-##Table of Contents
+## Table of Contents
 
-##Description
+## Description
 
-##Vulnerabilities
+## Vulnerabilities
 
-##Identify
-##Evaluate
-##Prevent
+## Identify
+
+## Evaluate
+
+## Prevent
