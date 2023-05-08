@@ -11,20 +11,32 @@ Group Member:
 
 Assigned Tasks:
 1. Mohd Faiz Hafizuddin bin Ahmad Yazi (2011837)
-- aaaa
+- Identify, evaluate and prevent of:
+  - Secured Cookies
+  - CSP
+  - JS Library.
+
 2. Muhammad Zaidi bin Abdul Razak (1820833)
-- aaaa
+- Identify, evaluate and prevent of:
+  - Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.
+  - Hash Disclosure.
+  - CSRF.
+
 3. Hani Arinah binti Hairul Azam (2019774)
-- aaaa
+- Identify, evaluate and prevent of:
+  - Cookie Poisoning.
+  - Information Disclosure.
+
 4. Hani Nursyamira binti Muhamat Halis (2016478)
-- aaaa
+- Identify, evaluate and prevent of:
+  - HTTPS implementation (TLS/SSL).
+  - Potential XSS.
 
 Table of Contents
 
 Description
 
 Vulnerabilities
-a.
 
 Identify
 Evaluate
