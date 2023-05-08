@@ -108,19 +108,9 @@ However they also make a penetration testers job harder, especially if the token
 
 Cross-site request forgery (CSRF) is an attack in which a victim unknowingly sends an HTTP request to a target destination to perform an action as the victim. The cause of this attack lies in application functionality using predictable URL/form actions in a repeatable manner. The trust that a website has for a user is exploited in CSRF attacks. While similar to cross-site scripting (XSS), which exploits the trust that a user has for a website, CSRF attacks are not necessarily cross-site but can be. Other names for CSRF attacks include XSRF, one-click attack, session riding, confused deputy, and sea surf.
 
-CSRF attacks are effective in various situations, such as when the victim has an active session or is authenticated via HTTP auth on the target site. Additionally, CSRF can be used to disclose information by accessing the response, especially when the target site is vulnerable to XSS. This is because XSS can function as a platform for CSRF, enabling the attack to operate within the same-origin policy.
+CSRF attacks are effective in various situations, such as when the victim has an active session or is authenticated via HTTP auth on the target site. Additionally, CSRF can be used to disclose information by accessing the response, especially when the target site is vulnerable to XSS. This is because XSS can function as a platform for CSRF, enabling the attack to operate within the same-origin policy. <br>
 
-Observed examples:
-- CVE-2004-1703 Add user accounts via a URL in an img tag
-- CVE-2004-1995 Add user accounts via a URL in an img tag
-- CVE-2004-1967 Arbitrary code execution by specifying the code in a crafted img tag or URL
-- CVE-2004-1842 Gain administrative privileges via a URL in an img tag
-- CVE-2005-1947 Delete a victim's information via a URL or an img tag
-- CVE-2005-2059 Change another user's settings via a URL or an img tag
-- CVE-2005-1674 Perform actions as administrator via a URL or an img tag
-- CVE-2009-3520 modify password for the administrator
-- CVE-2009-3022 CMS allows modification of configuration via CSRF attack against the administrator
-- CVE-2009-3759 web interface allows password changes or stopping a virtual machine via CSRF
+![image](https://user-images.githubusercontent.com/84786688/236856243-03a50bed-4caf-48f5-8ac6-ac784e0773df.png)<br>
 
 Reference: http://cwe.mitre.org/data/definitions/352.html
 
