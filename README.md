@@ -110,7 +110,7 @@ Information disclosure is a vulnerability that can jeopardize the security of se
 CWE-200, according to CWE by the Mitre Organisation, is one of the most significant downward movers in 2022, falling from #20 in 2021 to #33. The total number of NVDs is 241, and the average CVSS score is 5.99. As a result, CWE-200 has a medium severity rating, indicating that the web application may be vulnerable to a possible attack.
 #### Prevent:
 1. Identify the suspicious comments
-    -The first step in resolving this issue is to locate the suspicious code comments. These comments might contain sensitive information, debugging information, or        other facts that an attacker could use to uncover weaknesses in the web application.
+    1.The first step in resolving this issue is to locate the suspicious code comments. These comments might contain sensitive information, debugging information, or        other facts that an attacker could use to uncover weaknesses in the web application.
 
 2. Remove the suspicious comments
     -Once the suspicious comments are identified, the following step is to delete them from the source code. Sensitive information should never be kept in comments          since anybody with access to the source code may readily access it. Just make sure that any sensitive information is removed before committing the code.
