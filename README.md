@@ -104,7 +104,8 @@ Hamsa
   - Validate all input and sanitize output it before writing to any HTML attributes.
 ### <a name="inf"/>j. Information Disclosure
 #### Identify:
-Information disclosure is a vulnerability that can jeopardize the security of sensitive data in a web application. The vulnerability found in this situation is known as "Information Disclosure - Suspicious Comments." It refers to source code comments that might reveal sensitive information to an attacker. These suspicious comments may assist an attacker in obtaining information in some circumstances. The attacker can get further information about the web application by studying source code fragments and comments. Many suspicious comments in the code, such as BUG, HACK, FIXME, LATER, and TODO, indicate a lack of security functionality and verification. 
+![image](https://user-images.githubusercontent.com/121481219/236844193-4ee043a7-ea94-4b8f-91a8-6e2eb5b0ae67.png)
+Information disclosure is a vulnerability that can jeopardize the security of sensitive data in a web application. The vulnerability found in this situation is known as "Information Disclosure - Suspicious Comments." It refers to source code comments that might reveal sensitive information to an attacker. These suspicious comments may assist an attacker in obtaining information in some circumstances. The attacker can get further information about the web application by studying source code fragments and comments. 
 #### Evaluate:
 CWE-200, according to CWE by the Mitre Organisation, is one of the most significant downward movers in 2022, falling from #20 in 2021 to #33. The total number of NVDs is 241, and the average CVSS score is 5.99. As a result, CWE-200 has a medium severity rating, indicating that the web application may be vulnerable to a possible attack.
 #### Prevent:
