@@ -239,3 +239,4 @@ CWE-200, according to CWE by the Mitre Organisation, is one of the most signific
 Reference:
 - https://cwe.mitre.org/data/definitions/200.html
 - https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html
+- https://www.zaproxy.org/docs/alerts/10027/
