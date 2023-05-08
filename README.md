@@ -40,9 +40,24 @@ Group Member:
 
 ### Identify
 
-- Potential XSS 
+**Potential XSS**
   - Identified as User Controllable HTML Element Attribute.
-  - 
+  - The risk level is low.
+  - Classified as CWE ID:20
+  - The page involved is at URL: https://www.mohe.gov.my/korporat/profil-korporat
+
+  
 ### Evaluate
 
+**Potential XSS**
+  - Passive
+  - This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. 
+  - This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.
+  - User-controlled HTML attribute values were found. 
+  - The user-controlled value was 10.
+ 
 ### Prevent
+
+**Potential XSS**
+  - Try injecting special characters to see if XSS might be possible.
+  - Validate all input and sanitize output it before writing to any HTML attributes.
