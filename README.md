@@ -47,6 +47,10 @@ Hamsa
     10. [Information Disclosure](#inf)
 
 ## <a name="desc"/> Description
+Our assigned web application is the Ministry of Higher Education (MOHE) website at https://www.mohe.gov.my/en. In this case study, our group will look into the vulnerabilities of the web application by scanning the website using OWASP ZAP using both the automated scan and manual explore. 
+We will mainly be focusing on automated scan due to the large amount of webpages the site has. <br>
+
+The alerts observed are listed on the table of contents and we will also identify the level of risk for each alert and additional information on the classification of threats (CWE or CVE).
 ## <a name="obsv"/>Observation Results
 ### <a name="serv"/>a. Server OS and Server-Side Scripting used (Windows or Linux, PHP or ASP.net or JavaScript, etc.)
 #### Identify:
@@ -179,8 +183,22 @@ Reference:
 
 ### <a name="jsl"/>f. JS Library
 #### Identify:
+- Identifies as Vulnerable JS Library
+- The risk is medium
+- CWE ID 829 (Inclusion of Functionality from Untrusted Control Sphere)
+- The identified library jquery, version 1.12.4-joomla is vulnerable.
 #### Evaluate:
+- CVE-2020-11023: In jQuery versions greater than or equal to 1.0.3 and before 3.5.0, passing HTML containing <option> elements from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code. This problem is patched in jQuery 3.5.0.
+- CVE-2020-11022: In jQuery versions greater than or equal to 1.2 and before 3.5.0, passing HTML from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code. This problem is patched in jQuery 3.5.0.
+- CVE-2015-9251: jQuery before 3.0.0 is vulnerable to Cross-site Scripting (XSS) attacks when a cross-domain Ajax request is performed without the dataType option, causing text/javascript responses to be executed.
+- CVSS Score 4.3
+- This vulnerability is related with cross site scripting.
 #### Prevent:
+- Upgrade to the latest version of jquery.
+- Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+- When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.
+- For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602 (Client-Side Enforcement of Server-Side Security). Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+
 ### <a name="https"/>g. HTTPS Implementation (TLS/SSL)
 #### Identify:
 #### Evaluate:
