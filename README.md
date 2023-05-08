@@ -126,7 +126,7 @@ Reference: http://cwe.mitre.org/data/definitions/352.html
 - ESAPI Session Management control can be utilized to prevent CSRF attacks as it includes a component specifically designed for this purpose.
 - It's crucial to avoid using the GET method for any request that may trigger a state change to minimize the chances of CSRF attacks.
 
-- Implementation Phases:
+- Phase: Implementation
     - When implementing the application, it's essential to ensure that it's free of cross-site scripting issues, as most CSRF defenses can be bypassed using attacker-controlled scripts.
     - Checking the HTTP Referer header can help to identify if the request came from an expected page. However, it's important to note that this method can break legitimate functionality as users or proxies may have disabled sending the Referer header for privacy reasons.
 
