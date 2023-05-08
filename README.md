@@ -194,9 +194,11 @@ Reference:
 
 ### <a name="https"/>g. HTTPS Implementation (TLS/SSL)
 #### Identify:
+- There is no alert found on OWASP ZAP and no risk level and CWE ID can be identified.
 #### Evaluate:
+- Not available since there is https implementation for this website that can be seen at the URL of the website. However, content which was initially accessed via HTTPS (i.e.: using SSL/TLS encryption) is also accessible via HTTP (without encryption).
 #### Prevent:
-
+-- Not available for the website. However, the solution for this alert is ensure that the web server, application server, load balancer, etc. is configured to only serve such content via HTTPS. Consider implementing HTTP Strict Transport Security.
 ### <a name="coo"/>h. Cookie Poisoning
 #### Identify:
 - No alert found by OWASP ZAP. Thus, no risk level and CWE ID.
@@ -217,10 +219,16 @@ Reference:
   - This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.
   - User-controlled HTML attribute values were found. 
   - The user-controlled value was 10. 
+  - The user-controlled value was article-351.
+  - Alert tags: OWASP_2021_A03
+              : OWASP_2017_A01
+  - The number of XSS-based attacks is practically infinite, but they frequently involve sending sensitive information to the attacker, such as cookies or other session data, rerouting the victim to their own web content, or abusing the user's computer while impersonating the vulnerable website.
 #### Prevent:
   - Try injecting special characters to see if XSS might be possible.
   - Validate all input and sanitize output it before writing to any HTML attributes.
-
+  - Turn off HTTP TRACE support on all web servers.
+    
+Reference: http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute
 ### <a name="inf"/>j. Information Disclosure
 #### Identify:
 - Risk level: informational
