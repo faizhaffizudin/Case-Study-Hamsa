@@ -251,9 +251,6 @@ CWE-200, according to CWE by the Mitre Organisation, is one of the most signific
 - Implement proper authentication and authorization 
     -Proper authentication and authorization must be implemented to secure the web application. This will ensure that critical information and functionality are only        accessible to authorized individuals.
 
-- Make use of HTTPS
-    -HTTPS is required for secure communication between the client and the server since it encrypts all data transmitted between the client and the server. 
-
 Reference:
 - https://cwe.mitre.org/data/definitions/200.html
 - https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html
