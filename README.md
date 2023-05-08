@@ -84,7 +84,7 @@ Hamsa
     - Environment hardening (run your code using the lowest privileges that are required to accomplish the necessary tasks), surface reduction, input validation and enforcment by conversion can also be used.
     - Application firewall can also be used, that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.
 
-Observed examples can be seen on cwe links in the references below. <br>
+Observed examples of these exploited can be seen on their cwe mitre webpage accordingly.<br>
 Reference: https://cwe.mitre.org/data/definitions/200.html <br>
 https://cwe.mitre.org/data/definitions/829.html
 ### <a name="hash"/> b. Hash Disclosure
