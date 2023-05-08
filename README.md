@@ -149,6 +149,7 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 - Confidence: high
 - CWE ID: 693
 #### Evaluate:
+Content Security Policy(CSP) offers a layer of security that aids in detecting and mitigating specific sorts of threats, such as Cross-Site Scripting (XSS) and data injection attacks. Hackers use XSS attacks to deceive trustworthy websites into sending harmful material. The browser runs all code from trustworthy origins and cannot distinguish between legitimate and malicious code. Thus any inserted code is also executed.
 #### Prevent:
 ### <a name="jsl"/>f. JS Library
 #### Identify:
@@ -160,6 +161,7 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 #### Prevent:
 ### <a name="coo"/>h. Cookie Poisoning
 #### Identify:
+- No alert found
 #### Evaluate:
 #### Prevent:
 ### <a name="pot"/>i. Potential XSS
