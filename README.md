@@ -144,7 +144,7 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 - WASC ID 13
 - A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections through Set-Cookie: cead32cbdaf3cab9ed422ebced5449f0
 #### Evaluate:
-Cookies are used to manage state, handle logins or to track you for advertising purposes and should be kept safe. The process involved in setting cookie are:
+Cookies are used to manage state, handle logins or to track the user for advertising purposes and should be kept safe. The process involved in setting cookie are:
 1. The server asks the browser to set a cookie.
 2. It gives a name, value and other parameters.
 3. Browser stores the data in disk or memory. This feature depends on the cookie type.
@@ -189,6 +189,9 @@ Reference:
 - CWE ID 829 (Inclusion of Functionality from Untrusted Control Sphere)
 - The identified library jquery, version 1.12.4-joomla is vulnerable.
 #### Evaluate:
+A JS library that is missing security patches can make the website extremely vulnerable to various attacks. Third-party JS libraries can draw a variety of DOM-based vulnerabilities, including DOM-XSS, which can be exploited to hijack user accounts. Popular JS libraries typically have the advantage of being heavily audited. This also means that the flaws are quickly recognized and patched, resulting in a steady stream of security updates. Using a library with missing security patches can make the website exceptionally easy to abuse, making it crucial to ensure that any available security updates are to be applied immediately.
+
+Related:
 - CVE-2020-11023: In jQuery versions greater than or equal to 1.0.3 and before 3.5.0, passing HTML containing <option> elements from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code. This problem is patched in jQuery 3.5.0.
 - CVE-2020-11022: In jQuery versions greater than or equal to 1.2 and before 3.5.0, passing HTML from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. .html(), .append(), and others) may execute untrusted code. This problem is patched in jQuery 3.5.0.
 - CVE-2015-9251: jQuery before 3.0.0 is vulnerable to Cross-site Scripting (XSS) attacks when a cross-domain Ajax request is performed without the dataType option, causing text/javascript responses to be executed.
