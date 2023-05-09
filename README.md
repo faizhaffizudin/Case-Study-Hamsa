@@ -144,6 +144,14 @@ Reference: http://projects.webappsec.org/Cross-Site-Request-Forgery
 - WASC ID 13
 - A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections through Set-Cookie: cead32cbdaf3cab9ed422ebced5449f0
 #### Evaluate:
+Cookies are used to manage state, handle logins or to track you for advertising purposes and should be kept safe. The process involved in setting cookie are:
+1. The server asks the browser to set a cookie.
+2. It gives a name, value and other parameters.
+3. Browser stores the data in disk or memory. This feature depends on the cookie type.
+
+When an HTTP protocol is used for communication between client and server, the data traffic is sent in plaintext. An HHTP allows the attacker to see/modify the traffic using a Man-In-The-Middle attack (MITM). HTTPS is a secure version of HTTP. This protocol uses SSL/TLS to protect the data in the application layer. HTTPS is used for better authentication and data integrity. A secure flag is set by the application server while sending a new cookie to the user using an HTTP Response. The secure flag is used to prevent cookies from being observed and manipulated by an unauthorized party or parties. This is because the cookie is sent as a normal text. A browser will not send a cookie with the secure flag that is sent over an unencrypted HTTP request. That is, by setting the secure flag the browser will prevent/stop the transmission of a cookie over an unencrypted channel.
+
+Related:
 - CVE-2004-0462: A product does not set the Secure attribute for sensitive cookies in HTTPS sessions, which could cause the user agent to send those cookies in plaintext over an HTTP session with the product. CVSS Score is 2.1
 - CVE-2008-3663: A product does not set the secure flag for the session cookie in an https session, which can cause the cookie to be sent in http requests and make it easier for remote attackers to capture this cookie. CVSS Score is 5.0
 - CVE-2008-3662: A product does not set the secure flag for the session cookie in an https session, which can cause the cookie to be sent in http requests and make it easier for remote attackers to capture this cookie. CVSS Score is 5.0
@@ -257,3 +265,6 @@ Reference:
 - https://cwe.mitre.org/data/definitions/200.html
 - https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html
 - https://www.zaproxy.org/docs/alerts/10027/
+
+    ## Weekly Progress Report
+    [Weekly Progress Report - Hamsa.pdf](https://github.com/faizhaffizudin/Case-Study-Hamsa/files/11428141/Weekly.Progress.Report.-.Hamsa.pdf)
