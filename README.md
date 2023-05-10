@@ -161,6 +161,10 @@ Related:
 - Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.
 - Always set the secure attribute when the cookie should sent via HTTPS only.
 
+References:
+- https://cwe.mitre.org/data/definitions/614.html
+- https://beaglesecurity.com/blog/vulnerability/cookie-session-without-secure-flag.html
+
 ### <a name="csp"/>e. CSP
 #### Identify:
 - Risk level: medium
@@ -202,6 +206,10 @@ Related:
 - Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
 - When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.
 - For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602 (Client-Side Enforcement of Server-Side Security). Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+    
+References:
+    - https://cwe.mitre.org/data/definitions/829.html
+    - https://beaglesecurity.com/blog/vulnerability/vulnerable-javascript-library.html
 
 ### <a name="https"/>g. HTTPS Implementation (TLS/SSL)
 #### Identify:
